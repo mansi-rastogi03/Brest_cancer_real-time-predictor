@@ -1,0 +1,45 @@
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+}
+
+.logo img {
+    width: 100px;
+}
+
+.user-controls {
+    margin-right: 100px;
+}
+
+main {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.article {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.startup {
+    display: flex;
+    color: pink;
+    size: 3cm;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+}

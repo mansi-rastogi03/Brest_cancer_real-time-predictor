@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breast Cancer Diagnosis Prediction</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+    <h1>Breast Cancer Diagnosis Prediction</h1>
+    
+    <form id="predictionForm">
+        <label for="radius">Radius Mean:</label>
+        <input type="number" step="any" id="radius" name="radius" required><br><br>
+        
+        <label for="perimeter">Perimeter Mean:</label>
+        <input type="number" step="any" id="perimeter" name="perimeter" required><br><br>
+        
+        <label for="area">Area Mean:</label>
+        <input type="number" step="any" id="area" name="area" required><br><br>
+        
+        <label for="compactness">Compactness Mean:</label>
+        <input type="number" step="any" id="compactness" name="compactness" required><br><br>
+        
+        <label for="concave_points">Concave Points Mean:</label>
+        <input type="number" step="any" id="concave_points" name="concave_points" required><br><br>
+        
+        <label for="area_worst">Area Worst:</label>
+        <input type="number" step="any" id="area_worst" name="area_worst" required><br><br>
+        
+        <button type="submit">Submit</button>
+    </form>
+
+    <div id="result"></div>
+
+    <script>
+        $(document).ready(function() {
+            $('#predictionForm').on('submit', function(e) {
+                e.preventDefault();
+                $.ajax({
+                    url: '/predict',
+                    type: 'POST',
+                    data: $(this).serialize(),
+                    success: function(response) {
+                        $('#result').html('<h3>' + response.result + '</h3>');
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
